@@ -1,9 +1,9 @@
-Package: covidQuarantineViz   # or any short, no spaces name
+Package: covidQuarantineViz  
 Title: Interactive Exploration of COVID-19 Quarantine Analysis
 Version: 0.0.1
 Authors@R: 
-    person("YourFirstName", "YourLastName", 
-           email = "your.email@monash.edu", 
+    person("Dhruv", "Gal", 
+           email = "dgal0017@student.monash.edu", 
            role = c("aut", "cre"))
 Description: Tools and an interactive Shiny app to reproduce and explore 
     the analysis from ETC5523 Assignments 1–3, focusing on COVID-19 
