@@ -1,0 +1,24 @@
+Package: covidQuarantineViz   # or any short, no spaces name
+Title: Interactive Exploration of COVID-19 Quarantine Analysis
+Version: 0.0.1
+Authors@R: 
+    person("YourFirstName", "YourLastName", 
+           email = "your.email@monash.edu", 
+           role = c("aut", "cre"))
+Description: Tools and an interactive Shiny app to reproduce and explore 
+    the analysis from ETC5523 Assignments 1–3, focusing on COVID-19 
+    quarantine systems and related outcomes.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markup = "rd", roclets = c("rd", "namespace", "collate"))
+RoxygenNote: 7.3.2
+Depends: R (>= 4.2.0)
+Imports: 
+    dplyr,
+    ggplot2,
+    shiny,
+    shinythemes
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
