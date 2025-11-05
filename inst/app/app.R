@@ -75,10 +75,10 @@ server <- function(input, output, session) {
     df <- filtered_data()
 
     dplyr::tibble(
-      mean_incubation   = mean(df$t_incubation, na.rm = TRUE),
+      mean_incubation   = mean(df$t_incubation,   na.rm = TRUE),
       median_incubation = stats::median(df$t_incubation, na.rm = TRUE),
-      min_incubation    = min(df$t_incubation, na.rm = TRUE),
-      max_incubation    = max(df$t_incubation, na.rm = TRUE),
+      min_incubation    = min(df$t_incubation,    na.rm = TRUE),
+      max_incubation    = max(df$t_incubation,    na.rm = TRUE),
       n                 = sum(!is.na(df$t_incubation))
     )
   })
