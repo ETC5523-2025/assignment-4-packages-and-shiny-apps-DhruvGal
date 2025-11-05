@@ -1,3 +1,5 @@
+# inst/app/app.R
+
 library(shiny)
 library(shinythemes)
 library(dplyr)
@@ -9,32 +11,50 @@ data("quarantine_data", package = "covidQuarantineViz")
 ui <- fluidPage(
   theme = shinythemes::shinytheme("flatly"),
   titlePanel("Quarantine outcomes explorer"),
+
   sidebarLayout(
     sidebarPanel(
+      h4("Filters"),
       selectInput(
-        "country",
-        "Select country:",
-        choices = sort(unique(quarantine_data$country)),
-        selected = sort(unique(quarantine_data$country))[1]
-      )
+        "scenario",
+        "Select scenario:",
+        choices = sort(unique(quarantine_data$scenario)),
+        selected = sort(unique(quarantine_data$scenario))[1]
+      ),
+      br(),
+      h4("Field descriptions"),
+      helpText("scenario: Simulation scenario (traveller/worker and vaccination status)."),
+      helpText("t_incubation: Simulated incubation time (days) until symptom onset."),
+      helpText("group: Whether the simulation relates to travellers or workers.")
     ),
+
     mainPanel(
-      plotOutput("plot")
+      plotOutput("incub_plot"),
+      br(),
+      h4("How to interpret this plot"),
+      p("Each bar shows how many simulated individuals have incubation times"),
+      p("in each range for the selected scenario."),
+      p("Scenarios shifted to the right correspond to longer incubation times on average.")
     )
   )
 )
 
 server <- function(input, output, session) {
-  output$plot <- renderPlot({
-    df <- quarantine_data |>
-      filter(country == input$country)
 
-    ggplot(df, aes(x = date, y = outcome_rate)) +
-      geom_line() +
+  filtered_data <- reactive({
+    quarantine_data |>
+      filter(scenario == input$scenario)
+  })
+
+  output$incub_plot <- renderPlot({
+    df <- filtered_data()
+
+    ggplot(df, aes(x = t_incubation)) +
+      geom_histogram(bins = 30) +
       labs(
-        x = "Date",
-        y = "Outcome rate",
-        title = paste("Outcome rate over time for", input$country)
+        x = "Incubation time (days)",
+        y = "Number of simulated individuals",
+        title = paste("Distribution of incubation time -", input$scenario)
       )
   })
 }

@@ -1,0 +1,80 @@
+---
+title: "Overview of the quarantine breach analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Overview of the quarantine breach analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(covidQuarantineViz)
+```
+
+Introduction
+
+This vignette provides a brief overview of the covidQuarantineViz package.
+It shows the structure of the quarantine_data dataset and reproduces a
+simple visualisation similar to the analysis in ETC5523.
+
+The data
+
+The main dataset in this package is quarantine_data, which combines three
+simulation outputs from the COVIDQuarantine model (Lydeamore et al.) for
+different quarantine and vaccination scenarios.
+
+```{r}
+quarantine_data |>
+head()
+```
+
+The scenario column identifies the simulation scenario (for example,
+traveller versus worker, vaccinated versus unvaccinated), and the group
+column distinguishes between travellers and workers.
+
+Example summary and plot
+
+Below is a simple example summarising the average incubation time by scenario.
+
+```{r}
+quarantine_data |>
+  dplyr::group_by(scenario) |>
+  dplyr::summarise(
+    mean_incubation = mean(t_incubation, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+We can also visualise the incubation time distribution for each scenario.
+```{r}
+quarantine_data |>
+  ggplot2::ggplot(ggplot2::aes(x = t_incubation, fill = scenario)) +
+  ggplot2::geom_histogram(position = "identity", alpha = 0.4, bins = 30) +
+  ggplot2::labs(
+    x = "Incubation time (days)",
+    y = "Number of simulated individuals",
+    fill = "Scenario",
+    title = "Incubation time distribution by scenario"
+  )
+
+```
+
+This plot illustrates how the incubation time distribution shifts under
+different assumptions about vaccination and whether the scenario relates
+to travellers or workers.
+
+Using the Shiny app
+
+The package also includes an interactive Shiny application to explore the
+quarantine_data more flexibly.
+```{r,eval = FALSE}
+run_quarantine_app()
+```
+The app allows users to filter by scenario and inspect how the incubation
+time distribution changes under different assumptions.
+
+
+
