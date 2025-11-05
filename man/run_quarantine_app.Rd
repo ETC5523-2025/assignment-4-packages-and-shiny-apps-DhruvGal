@@ -14,5 +14,6 @@ This function launches the interactive Shiny app included with the
 `covidQuarantineViz` package.
 }
 \examples{
+# library(covidQuarantineViz)
 # run_quarantine_app()
 }

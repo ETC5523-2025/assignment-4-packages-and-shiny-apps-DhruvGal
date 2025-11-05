@@ -7,6 +7,7 @@
 #' @export
 #'
 #' @examples
+#' # library(covidQuarantineViz)
 #' # run_quarantine_app()
 run_quarantine_app <- function() {
   app_dir <- system.file("app", package = "covidQuarantineViz")
