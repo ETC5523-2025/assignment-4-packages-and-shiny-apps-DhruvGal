@@ -9,7 +9,7 @@ code.
 
 You can install the development version from GitHub with:
 
-``` r
-#install.packages("remotes")
-#remotes::install_github("DhruvGal/covidQuarantineViz")
+```{r, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-DhruvGal")
 ```

@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2025 covidQuarantineViz # or any short, no spaces name authors
+Copyright (c) 2025 covidQuarantineViz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
