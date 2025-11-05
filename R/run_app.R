@@ -1,7 +1,9 @@
+#' Launch the quarantine Shiny app
+#'
 #' This function launches the interactive Shiny app included with the
 #' `covidQuarantineViz` package.
 #'
-#' @return
+#' @return No return value, called for side effects.
 #' @export
 #'
 #' @examples

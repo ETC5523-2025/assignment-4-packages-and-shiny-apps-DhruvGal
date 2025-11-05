@@ -2,10 +2,12 @@
 % Please edit documentation in R/run_app.R
 \name{run_quarantine_app}
 \alias{run_quarantine_app}
-\title{This function launches the interactive Shiny app included with the
-`covidQuarantineViz` package.}
+\title{Launch the quarantine Shiny app}
 \usage{
 run_quarantine_app()
+}
+\value{
+No return value, called for side effects.
 }
 \description{
 This function launches the interactive Shiny app included with the
