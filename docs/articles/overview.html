@@ -66,9 +66,15 @@
 <p>Introduction</p>
 <p>This vignette provides a brief overview of the covidQuarantineViz
 package. It shows the structure of the quarantine_data dataset and
-reproduces a simple visualisation similar to the analysis in
-ETC5523.</p>
-<p>The data</p>
+reproduces a simple visualisation similar to the analysis in ETC5523.
+This vignette forms part of <strong>ETC5523 Assignment 4: Turning
+analysis interactive</strong>. It shows how the
+<code>covidQuarantineViz</code> package wraps the simulation outputs
+from the COVIDQuarantine model and reproduces key steps from the earlier
+ETC5523 assignments in a reproducible and interactive way.</p>
+<div class="section level2">
+<h2 id="the-data">The data<a class="anchor" aria-label="anchor" href="#the-data"></a>
+</h2>
 <p>The main dataset in this package is quarantine_data, which combines
 three simulation outputs from the COVIDQuarantine model (Lydeamore et
 al.) for different quarantine and vaccination scenarios.</p>
@@ -113,7 +119,10 @@ al.) for different quarantine and vaccination scenarios.</p>
 <p>The scenario column identifies the simulation scenario (for example,
 traveller versus worker, vaccinated versus unvaccinated), and the group
 column distinguishes between travellers and workers.</p>
-<p>Example summary and plot</p>
+</div>
+<div class="section level2">
+<h2 id="example-summary-and-plot">Example summary and plot<a class="anchor" aria-label="anchor" href="#example-summary-and-plot"></a>
+</h2>
 <p>Below is a simple example summarising the average incubation time by
 scenario.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -145,14 +154,19 @@ scenario.</p>
 <p>This plot illustrates how the incubation time distribution shifts
 under different assumptions about vaccination and whether the scenario
 relates to travellers or workers.</p>
-<p>Using the Shiny app</p>
+</div>
+<div class="section level2">
+<h2 id="using-the-shiny-app">Using the Shiny app<a class="anchor" aria-label="anchor" href="#using-the-shiny-app"></a>
+</h2>
 <p>The package also includes an interactive Shiny application to explore
 the quarantine_data more flexibly.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/run_quarantine_app.html">run_quarantine_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The app allows users to filter by scenario and inspect how the
 incubation time distribution changes under different assumptions.</p>
-  </main>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
