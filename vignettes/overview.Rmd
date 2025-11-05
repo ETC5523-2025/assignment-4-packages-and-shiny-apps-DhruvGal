@@ -19,9 +19,13 @@ Introduction
 
 This vignette provides a brief overview of the covidQuarantineViz package.
 It shows the structure of the quarantine_data dataset and reproduces a
-simple visualisation similar to the analysis in ETC5523.
+simple visualisation similar to the analysis in ETC5523. This vignette forms part of **ETC5523 Assignment 4: Turning analysis
+interactive**. It shows how the `covidQuarantineViz` package wraps the
+simulation outputs from the COVIDQuarantine model and reproduces key steps from
+the earlier ETC5523 assignments in a reproducible and interactive way.
 
-The data
+
+## The data
 
 The main dataset in this package is quarantine_data, which combines three
 simulation outputs from the COVIDQuarantine model (Lydeamore et al.) for
@@ -36,7 +40,7 @@ The scenario column identifies the simulation scenario (for example,
 traveller versus worker, vaccinated versus unvaccinated), and the group
 column distinguishes between travellers and workers.
 
-Example summary and plot
+## Example summary and plot
 
 Below is a simple example summarising the average incubation time by scenario.
 
@@ -48,7 +52,9 @@ quarantine_data |>
     .groups = "drop"
   )
 ```
+
 We can also visualise the incubation time distribution for each scenario.
+
 ```{r}
 quarantine_data |>
   ggplot2::ggplot(ggplot2::aes(x = t_incubation, fill = scenario)) +
@@ -66,7 +72,7 @@ This plot illustrates how the incubation time distribution shifts under
 different assumptions about vaccination and whether the scenario relates
 to travellers or workers.
 
-Using the Shiny app
+## Using the Shiny app
 
 The package also includes an interactive Shiny application to explore the
 quarantine_data more flexibly.

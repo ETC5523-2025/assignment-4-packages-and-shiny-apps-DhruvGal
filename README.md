@@ -3,7 +3,15 @@
 
 `covidQuarantineViz` is an R package that turns the analysis from
 ETC5523 Assignments 1–3 into an interactive Shiny app and reproducible
-code. a \## Installation
+code.
+
+This package was developed as part of **ETC5523 Assignment 4: Turning
+analysis interactive**. It bundles simulation outputs from the
+COVIDQuarantine model and provides both reproducible code and a Shiny
+app so that the analysis from Assignments 1–3 can be explored in an
+interactive way.
+
+## Installation
 
 You can install the development version from GitHub with:
 
