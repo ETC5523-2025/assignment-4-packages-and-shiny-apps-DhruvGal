@@ -1,5 +1,3 @@
-# inst/app/app.R
-
 library(shiny)
 library(shinythemes)
 library(dplyr)
